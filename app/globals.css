@@ -1,76 +1,274 @@
 @import "tailwindcss";
 
-@theme {
-  --color-sm-navy: #1a1a2e;
-  --color-sm-navy-dim: #141422;
-  --color-sm-navy-xdim: #0d0d18;
-  --color-sm-charcoal: #2d2d44;
-  --color-sm-border: #3d3d54;
-  --color-sm-lavender: #b8a9d9;
-  --color-sm-cream: #e8d5b7;
-  --color-sm-gold: #d4a574;
-  --color-sm-green: #7cb97c;
-  --color-sm-white: #f5f5f5;
-  --color-sm-muted: #a0a0a0;
-
-  --animate-breathe: breathe 4s ease-in-out infinite;
-  --animate-fade-in: fadeIn 0.4s ease-out forwards;
-  --animate-pulse-soft: pulseSoft 2s ease-in-out infinite;
-
-  @keyframes breathe {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes pulseSoft {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-  }
-}
+/* ============================================
+   MY STORY MAGIC - BRAND THEME
+   ============================================ */
 
 :root {
-  --sm-navy: #1a1a2e;
-  --sm-navy-dim: #141422;
-  --sm-navy-xdim: #0d0d18;
-  --sm-charcoal: #2d2d44;
-  --sm-border: #3d3d54;
-  --sm-lavender: #b8a9d9;
-  --sm-cream: #e8d5b7;
-  --sm-gold: #d4a574;
-  --sm-green: #7cb97c;
-  --sm-white: #f5f5f5;
-  --sm-muted: #a0a0a0;
+  /* Brand Colors */
+  --brand-purple-dark: #1e1b4b;
+  --brand-purple: #581c87;
+  --brand-purple-light: #a855f7;
+  --brand-pink: #ec4899;
+  --brand-gold: #fde047;
+  
+  /* Semantic Colors */
+  --background: #1e1b4b;
+  --foreground: #ffffff;
+  --text-muted: #d8b4fe;
+  --text-subtle: #a78bfa;
+  
+  /* Glass Effect */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
 }
+
+/* ============================================
+   FONTS
+   ============================================ */
+
+@font-face {
+  font-family: 'Quicksand';
+  src: url('https://fonts.gstatic.com/s/quicksand/v31/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o58a-xDwxUD2GFw.woff2') format('woff2');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Crimson Text';
+  src: url('https://fonts.gstatic.com/s/crimsontext/v19/wlp2gwHKFkZgtmSR3NB0oRJvaAJSA_JN3Q.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
 
 body {
-  background: var(--sm-navy);
-  color: var(--sm-white);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
+  background: linear-gradient(to bottom, var(--brand-purple-dark), var(--brand-purple), var(--brand-purple-dark));
+  color: var(--foreground);
+  font-family: 'Quicksand', system-ui, sans-serif;
+  min-height: 100vh;
 }
 
-.bottom-nav {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  background: var(--sm-charcoal);
-  border-top: 1px solid var(--sm-border);
-  padding: 10px 0;
-  padding-bottom: calc(10px + env(safe-area-inset-bottom));
-  display: flex;
-  justify-content: space-around;
-  max-width: 430px;
-  margin: 0 auto;
-  z-index: 50;
+.font-display {
+  font-family: 'Quicksand', system-ui, sans-serif;
+  font-weight: 700;
 }
 
-.prompt-hug      { background: rgba(232,213,183,0.15); border: 1px solid rgba(232,213,183,0.35); }
-.prompt-question { background: rgba(184,169,217,0.15); border: 1px solid rgba(184,169,217,0.35); }
-.prompt-action   { background: rgba(124,185,124,0.15); border: 1px solid rgba(124,185,124,0.35); }
-.prompt-end      { background: rgba(26,26,46,0.6);     border: 1px solid rgba(255,255,255,0.1);  }
+.font-story {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-style: italic;
+}
 
-::-webkit-scrollbar       { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--sm-border); border-radius: 2px; }
+/* ============================================
+   GRADIENT BACKGROUNDS
+   ============================================ */
+
+.bg-magic-gradient {
+  background: linear-gradient(to bottom, #1e1b4b, #581c87, #312e81);
+}
+
+.bg-button-gradient {
+  background: linear-gradient(to right, #a855f7, #ec4899);
+}
+
+/* ============================================
+   GLASS MORPHISM
+   ============================================ */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+/* ============================================
+   SLEEPY BEAR ANIMATIONS
+   ============================================ */
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  75% { transform: rotate(-10deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(20px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-breathe { animation: breathe 3s ease-in-out infinite; }
+.animate-wiggle { animation: wiggle 1s ease-in-out infinite; }
+.animate-bounce-soft { animation: bounce-soft 1.5s ease-in-out infinite; }
+.animate-wave { animation: wave 1s ease-in-out infinite; }
+.animate-float { animation: float 2s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+.animate-twinkle { animation: twinkle 2s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 1.5s ease-out infinite; }
+.animate-fade-in { animation: fade-in 0.5s ease-out forwards; }
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.text-gradient {
+  background: linear-gradient(to right, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.shadow-glow-purple {
+  box-shadow: 0 10px 40px rgba(168, 85, 247, 0.4);
+}
+
+.shadow-glow-pink {
+  box-shadow: 0 10px 40px rgba(236, 72, 153, 0.4);
+}
+
+/* ============================================
+   FORM INPUTS
+   ============================================ */
+
+.input-magic {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-radius: 1rem;
+  padding: 0.875rem 1.25rem;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  outline: none;
+  transition: all 0.2s;
+}
+
+.input-magic::placeholder {
+  color: rgba(216, 180, 254, 0.6);
+}
+
+.input-magic:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn-magic {
+  width: 100%;
+  background: linear-gradient(to right, #a855f7, #ec4899);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
+}
+
+.btn-magic:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 35px rgba(168, 85, 247, 0.4);
+}
+
+.btn-magic:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e9d5ff;
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.7);
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+  50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
